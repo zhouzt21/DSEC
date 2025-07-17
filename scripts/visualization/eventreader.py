@@ -2,6 +2,7 @@ from pathlib import Path
 import weakref
 
 import h5py
+import hdf5plugin
 
 from utils.eventslicer import EventSlicer
 
