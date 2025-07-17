@@ -37,6 +37,12 @@ if __name__ == "__main__":
         # Prepare output directory for depth maps
         relative_path = os.path.relpath(root, args.disparity_dir)
         output_subdir = os.path.join(args.output_dir, relative_path, "depth")
+
+        # Skip processing if the depth folder already exists
+        if os.path.exists(output_subdir):
+            print(f"Depth folder already exists in {output_subdir}, skipping...")
+            continue
+
         os.makedirs(output_subdir, exist_ok=True)
 
         # Process all disparity images in the current directory
